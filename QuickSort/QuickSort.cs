@@ -8,6 +8,17 @@ namespace SortingAlgorithm
 {
     class QuickSort
     {
+        public static void AscendingSort( int[] arg )
+        {
+            AscendingSort(arg, 0, arg.Length);
+        }
+
+        /// <summary>
+        /// 퀵정렬, 오름차순 정렬을 한다.
+        /// </summary>
+        /// <param name="arg">정렬할 배열</param>
+        /// <param name="startIndex">정렬을 시작할 범위의 처음 인덱스</param>
+        /// <param name="endIndex">정렬을 시작할 범위의 마지막 인덱스</param>
         public static void AscendingSort( int[] arg, int startIndex, int endIndex )
         {
             //정렬은 arg의 크키가 2 이상일 때에만 실행된다
@@ -67,10 +78,15 @@ namespace SortingAlgorithm
                 pivotIndex = rightIndex;
             }
 
+            // 왼쪽
             AscendingSort(arg, startIndex, pivotIndex - 1);
+            
+            // 오른쪽
             AscendingSort(arg, pivotIndex + 1, endIndex);
         }
 
+         
+        
         static void Swap( ref int a, ref int b )
         {
             int temp = a;
